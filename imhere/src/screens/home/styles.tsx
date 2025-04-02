@@ -18,5 +18,15 @@ export const styles = StyleSheet.create({
       fontSize: 12,
       marginTop: 2,
       marginLeft: 8
+    },
+    input: {
+        borderWidth: 1,
+        borderRadius: 5,
+        marginTop: 8,
+        marginHorizontal: 10,
+        backgroundColor: '#1F1E25',
+        color: '#FFFFFF',
+        padding: 16,
+        fontSize: 16
     }
   });
