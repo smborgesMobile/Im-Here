@@ -20,8 +20,9 @@ export const styles = StyleSheet.create({
     marginLeft: 8
   },
   input: {
+    flex: 1,
     borderRadius: 5,
-    marginTop: 8,
+    marginTop: 24,
     marginHorizontal: 10,
     backgroundColor: '#1F1E25',
     color: '#FFFFFF',
@@ -29,16 +30,21 @@ export const styles = StyleSheet.create({
     fontSize: 16
   },
   buttonSend: {
-    width: 56,
-    height: 56,
+    width: 40,
+    height: 40,
     borderRadius: 5,
     backgroundColor: '#E51C44',
     color: '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    lineHeight: 56,
+    lineHeight: 35,
     marginHorizontal: 16,
     marginTop: 8,
+  },
+  form: {
+    width: '100%',
+    flexDirection: 'row',
+    marginBottom: 16
   }
 });
