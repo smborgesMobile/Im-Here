@@ -1,18 +1,23 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
-export function Participant() {
+interface ParticipantProps {
+    name: string;
+}
+
+export function Participant({ name }: ParticipantProps) {
+
     function handleParticipantAdd() {
-        console.log('Participant added');
+        console.log('Participant deleted successfully: ' + name);
     }
 
     return (
         <View style={styles.container}>
             <Text style={styles.name}>
-                Sérgio Mendes de Oliveira Borges
+                {name}
             </Text>
             <TouchableOpacity onPress={handleParticipantAdd} style={styles.buttonSend}>
-                <Text style={styles.buttonSend}> + </Text>
+                <Text style={styles.buttonSend}> - </Text>
             </TouchableOpacity>
         </View>
     );

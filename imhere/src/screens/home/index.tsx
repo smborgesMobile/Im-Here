@@ -26,10 +26,10 @@ export default function Home() {
                 </TouchableOpacity>
             </View>
 
-            <Participant />
-            <Participant />
-            <Participant />
-            <Participant />
+            <Participant name = "Sérgio Mendes de Oliveira Borges" />
+            <Participant name = "Ana Maria Assis"/>
+            <Participant name = "Mateus Mendes"/>
+            <Participant name = "Sérgio Vilhena"/>
         </SafeAreaView>
     );
 }
