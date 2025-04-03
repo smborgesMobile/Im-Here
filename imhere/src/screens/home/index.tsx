@@ -1,8 +1,13 @@
-import { SafeAreaView, Text, TextInput } from 'react-native';
+import { Button, SafeAreaView, Text, TextInput, TouchableOpacity } from 'react-native';
 import { styles } from "./styles";
 
 
 export default function Home() {
+
+    function handleParticipantAdd() { 
+        console.log('Participant added');
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.eventName}> Nome do Evento</Text>
@@ -12,6 +17,9 @@ export default function Home() {
                 placeholder='Type your text here...'
                 placeholderTextColor='#6b6b6b'
             />
+            <TouchableOpacity onPress={handleParticipantAdd} style={styles.buttonSend}>
+                <Text style={styles.buttonSend}> + </Text>
+            </TouchableOpacity>
         </SafeAreaView>
     );
 }
