@@ -3,20 +3,16 @@ import { styles } from "./styles";
 
 interface ParticipantProps {
     name: string;
+    onRemove: (name: string) => void;
 }
 
-export function Participant({ name }: ParticipantProps) {
-
-    function handleParticipantAdd() {
-        console.log('Participant deleted successfully: ' + name);
-    }
-
+export function Participant({ name, onRemove }: ParticipantProps) {
     return (
         <View style={styles.container}>
             <Text style={styles.name}>
                 {name}
             </Text>
-            <TouchableOpacity onPress={handleParticipantAdd} style={styles.buttonSend}>
+            <TouchableOpacity onPress={() => onRemove(name)} style={styles.buttonSend}>
                 <Text style={styles.buttonSend}> - </Text>
             </TouchableOpacity>
         </View>

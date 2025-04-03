@@ -5,8 +5,8 @@ import { Participant } from "../../components/Partcipant";
 
 export default function Home() {
 
-    function handleParticipantAdd() {
-        console.log('Participant added');
+    function handleParticipantAdd(name: string) {
+        console.log(`Participant added: ${name}`);
     }
 
     return (
@@ -21,15 +21,15 @@ export default function Home() {
                     placeholderTextColor='#6b6b6b'
                 />
 
-                <TouchableOpacity onPress={handleParticipantAdd} style={styles.buttonSend}>
+                <TouchableOpacity onPress={() => handleParticipantAdd} style={styles.buttonSend}>
                     <Text style={styles.buttonSend}> + </Text>
                 </TouchableOpacity>
             </View>
 
-            <Participant name = "Sérgio Mendes de Oliveira Borges" />
-            <Participant name = "Ana Maria Assis"/>
-            <Participant name = "Mateus Mendes"/>
-            <Participant name = "Sérgio Vilhena"/>
+            <Participant name="Sérgio Mendes de Oliveira Borges" onRemove={handleParticipantAdd} />
+            <Participant name="Ana Maria Assis" onRemove={handleParticipantAdd} />
+            <Participant name="Mateus Mendes" onRemove={handleParticipantAdd} />
+            <Participant name="Sérgio Vilhena" onRemove={handleParticipantAdd} />
         </SafeAreaView>
     );
 }
