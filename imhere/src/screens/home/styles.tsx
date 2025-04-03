@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     marginLeft: 4,
     marginTop: 20
   },
-  eventDate: {
+eventDate: {
     color: '#d5d8de',
     fontSize: 12,
     marginTop: 2,
@@ -46,5 +46,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 16,
     marginTop: 20
+  },
+  lisEmpty: { 
+    fontSize: 16, 
+    color: '#ffffff', 
+    marginTop: 20, 
+    marginLeft: 16
   }
 });
