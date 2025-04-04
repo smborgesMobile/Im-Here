@@ -4,9 +4,8 @@ import { Participant } from "../../components/Partcipant";
 import { styles } from "./styles";
 
 export default function Home() {
-    const [participants, setParcipants] = useState([
-        "Sérgio Mendes de Oliveira Borges"
-    ]);
+    const [participants, setParcipants] = useState<string[]>([]);
+    const [participantName, setParcipantName] = useState("");
 
     function handleParticipantDelete(name: string) {
         return Alert.alert(
@@ -15,7 +14,7 @@ export default function Home() {
             {
                 text: "Sim",
                 onPress: () => {
-                    console.log("Deletetado", name);
+                    setParcipants((prevState) => prevState.filter((participant) => participant !== name));
                 }
             },
             {
@@ -27,7 +26,7 @@ export default function Home() {
     }
 
     function handleParticipantAdd() {
-        if (participants.includes("Ana Maria Assis")) {
+        if (participants.includes(participantName)) {
             return Alert.alert(
                 "Atenção",
                 "Ja existe um participante cadastrado com esse nome", [
@@ -38,7 +37,7 @@ export default function Home() {
             ]);
         }
 
-        setParcipants((prevState) => [...prevState, "Ana Maria Assis"]);
+        setParcipants((prevState) => [...prevState, participantName]);
     }
 
     return (
@@ -50,6 +49,7 @@ export default function Home() {
                     style={styles.input}
                     placeholder="Type your text here..."
                     placeholderTextColor="#6b6b6b"
+                    onChangeText={setParcipantName}
                 />
 
                 <TouchableOpacity onPress={() => handleParticipantAdd()} style={styles.buttonSend}>
@@ -69,7 +69,8 @@ export default function Home() {
                 )}
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={() => (
-                    <Text style={styles.lisEmpty}>Sem participantes cadastrados</Text>
+                    <Text style={styles.lisEmpty}> Ainda não há participantes cadastrados. Para começar, adicione participantes à lista.
+                        Clique no botão abaixo para adicionar um novo participante.</Text>
                 )}
             />
         </SafeAreaView>

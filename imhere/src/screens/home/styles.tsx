@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     marginLeft: 4,
     marginTop: 20
   },
-eventDate: {
+  eventDate: {
     color: '#d5d8de',
     fontSize: 12,
     marginTop: 2,
@@ -47,10 +47,13 @@ eventDate: {
     marginBottom: 16,
     marginTop: 20
   },
-  lisEmpty: { 
-    fontSize: 16, 
-    color: '#ffffff', 
-    marginTop: 20, 
-    marginLeft: 16
+  lisEmpty: {
+    width: '100%',
+    fontSize: 16,
+    color: '#ffffff',
+    marginTop: 20,
+    paddingLeft: 16,
+    paddingRight: 16,
+    textAlign: 'center'
   }
 });
