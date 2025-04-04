@@ -1,14 +1,6 @@
-import {
-    Button,
-    SafeAreaView,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
-    FlatList,
-} from "react-native";
-import { styles } from "./styles";
+import { FlatList, SafeAreaView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Participant } from "../../components/Partcipant";
+import { styles } from "./styles";
 
 export default function Home() {
     const participants = [
@@ -34,7 +26,6 @@ export default function Home() {
         <SafeAreaView style={styles.container}>
             <Text style={styles.eventName}> Nome do Evento</Text>
             <Text style={styles.eventDate}> Sexta, 4 de Novembro de 2035.</Text>
-
             <View style={styles.form}>
                 <TextInput
                     style={styles.input}
@@ -46,7 +37,7 @@ export default function Home() {
                     <Text style={styles.buttonSend}> + </Text>
                 </TouchableOpacity>
             </View>
-
+            // FlatList is used to efficiently render a large list of participants.
             <FlatList
                 data={participants}
                 keyExtractor={(item) => item}
