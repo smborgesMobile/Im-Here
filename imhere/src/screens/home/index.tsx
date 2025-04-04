@@ -1,22 +1,12 @@
+import { useState } from "react";
 import { FlatList, SafeAreaView, Text, TextInput, TouchableOpacity, View, Alert } from "react-native";
 import { Participant } from "../../components/Partcipant";
 import { styles } from "./styles";
 
 export default function Home() {
-    const participants = [
-        "Sérgio Mendes de Oliveira Borges",
-        "Ana Maria Assis",
-        "Mateus Mendes",
-        "Sérgio Vilhena",
-        "João Pedro",
-        "Lucas Mendes",
-        "Sérgio Mendes de Oliveira Borges 00c",
-        "Ana Maria Assis 00",
-        "Mateus Mendes 00",
-        "Sérgio Vilhena 00",
-        "João Pedro 00",
-        "Lucas Mendes 00",
-    ];
+    const [participants, setParcipants] = useState([
+        "Sérgio Mendes de Oliveira Borges"
+    ]);
 
     function handleParticipantDelete(name: string) {
         return Alert.alert(
@@ -47,6 +37,8 @@ export default function Home() {
                 },
             ]);
         }
+
+        setParcipants((prevState) => [...prevState, "Ana Maria Assis"]);
     }
 
     return (
