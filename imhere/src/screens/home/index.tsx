@@ -1,4 +1,4 @@
-import { FlatList, SafeAreaView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FlatList, SafeAreaView, Text, TextInput, TouchableOpacity, View, Alert } from "react-native";
 import { Participant } from "../../components/Partcipant";
 import { styles } from "./styles";
 
@@ -18,8 +18,35 @@ export default function Home() {
         "Lucas Mendes 00",
     ];
 
-    function handleParticipantAdd(name: string) {
-        console.log(`Participant added: ${name}`);
+    function handleParticipantDelete(name: string) {
+        return Alert.alert(
+            "Remover",
+            `Deseja mesmo remover o participante ${name}`, [
+            {
+                text: "Sim",
+                onPress: () => {
+                    console.log("Deletetado", name);
+                }
+            },
+            {
+                text: "Não",
+                style: "cancel"
+            },
+
+        ]);
+    }
+
+    function handleParticipantAdd() {
+        if (participants.includes("Ana Maria Assis")) {
+            return Alert.alert(
+                "Atenção",
+                "Ja existe um participante cadastrado com esse nome", [
+                {
+                    text: "OK",
+                    style: "cancel"
+                },
+            ]);
+        }
     }
 
     return (
@@ -33,11 +60,10 @@ export default function Home() {
                     placeholderTextColor="#6b6b6b"
                 />
 
-                <TouchableOpacity onPress={() => handleParticipantAdd} style={styles.buttonSend}>
+                <TouchableOpacity onPress={() => handleParticipantAdd()} style={styles.buttonSend}>
                     <Text style={styles.buttonSend}> + </Text>
                 </TouchableOpacity>
             </View>
-            // FlatList is used to efficiently render a large list of participants.
             <FlatList
                 data={participants}
                 keyExtractor={(item) => item}
@@ -45,7 +71,7 @@ export default function Home() {
                     <Participant
                         name={item}
                         onRemove={() => {
-                            handleParticipantAdd(item);
+                            handleParticipantDelete(item);
                         }}
                     />
                 )}
